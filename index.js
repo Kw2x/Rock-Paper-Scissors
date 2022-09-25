@@ -1,46 +1,32 @@
-//#create a variable that holds the value of the computer choice (paer, rock, scissors) - getComputerChoice
+let playerSelection = prompt('Rock, Paper, Scissors');
+playerSelection = playerSelection.toLowerCase();
+const computerSelection = getComputerChoice();
 
-// Computer Choice
-let cChoice = ['Rock', 'Paper', 'Scissors'];
-function getComputerChoice () {
+let playerScore=0;
+let computerScore=0;
+let tieScore=0;
+console.log(getRound(playerSelection, computerSelection));
+
+function getComputerChoice() {
+    let cChoice = ['rock', 'paper', 'scissors'];
     let random = Math.floor(Math.random() * cChoice.length);
-    return (cChoice[random]);
-}
-//# write a function that plays a single round - playRound function should take two parameters -the playerSelection and the computerSelection
+    return(cChoice[random]);}
 
-// getRound
 function getRound(playerSelection, computerSelection) {
-   if (playerSelection === computerSelection) {
+   if (playerSelection === getComputerChoice) {
+      tieScore++; 
       return `It's a tie! you both picked ${playerSelection}`;
    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+      playerScore++;
       return "You win! Rock beats Scissors";
    } else if (playerSelection === "paper" && computerSelection === "rock") {
+      playerScore++;
       return "You win! Paper beats Rock";
    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+      playerScore++;
       return "You win! Scissors beats Paper";
    } else {
-      return `You lose! ${computerSelection} beats ${playerSelection}`;
-   }
-}
-
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(getRound(playerSelection.toLowerCase(), computerSelection));
-//# then return a string that delcares the winner of the round like - "You Lose! Paper beats Rock"
-else {
-   return `You lose! ${computerSelection} beats ${playerSelection}`;
-}
-//# make your functions playerSelection parameter case insenstive so the user can input and variation of - (rock, Rock RoCk)
-console.log(getRound(playerSelection.toLowerCase(), computerSelection));
-//# IMPORTANT we want to return the of the function call not console.log()
-console.log(getRound(playerSelection.toLowerCase(), computerSelection));
-//# write a new function called game(). it calls the playRound function inside of game()
-function game() {
-      getRound()
-}
-//# create a loop to play 5 rounds 
-function game() {
-   for (let i = 0; i < 5; i++) {
-      getRound()
-   }
+      computerScore++; 
+      return `You lose! ${playerSelection} beats ${computerSelection}`;
+ }
 }
