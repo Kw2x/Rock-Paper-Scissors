@@ -1,4 +1,4 @@
-let playerSelection = prompt('Rock, Paper, Scissors');
+let playerSelection = prompt('Rock, Paper, Scissors')
 playerSelection = playerSelection.toLowerCase();
 const computerSelection = getComputerChoice();
 
@@ -18,15 +18,30 @@ function getRound(playerSelection, computerSelection) {
       return `It's a tie! you both picked ${playerSelection}`;
    } else if (playerSelection === "rock" && computerSelection === "scissors") {
       playerScore++;
-      return "You win! Rock beats Scissors";
+      return "Player wins! Rock beats Scissors" + playerScore;
    } else if (playerSelection === "paper" && computerSelection === "rock") {
       playerScore++;
-      return "You win! Paper beats Rock";
+      return "Player wins! Paper beats Rock" + playerScore;
    } else if (playerSelection === "scissors" && computerSelection === "paper") {
       playerScore++;
-      return "You win! Scissors beats Paper";
+      return "Player wins! Scissors beats Paper" + playerScore;
    } else {
       computerScore++; 
-      return `You lose! ${playerSelection} beats ${computerSelection}`;
+      return `You lose! ${playerSelection} beats ${computerSelection}` + computerScore;
  }
+}
+
+function getGame() {
+   for (let i = 0; i <5; i++){
+      getRound();
+      if (playerScore>computerScore){
+         return "You Win this game.\n -------";
+       }
+         if (playerScore==computerScore){
+           return "This game is a tie.\n -------";
+         }
+        else{
+         return "You Lose this game.\n -------";
+       }
+   }
 }
