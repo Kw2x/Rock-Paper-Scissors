@@ -54,10 +54,8 @@ switch(playerSelection){
     console.log("Player score " + playerScore);
 }
 
-function getComputerChoice() {  // computer selects rock, paper or scissors at random  
-   let max = 4;
-   let min = 1;
-   let randomNumber = Math.floor(Math.random() * (max - min) + min);
+function getComputerChoice() {  
+   let randomNumber = Math.floor(Math.random());
    switch(randomNumber){
        case 1:
            return "Rock";
@@ -69,13 +67,23 @@ function getComputerChoice() {  // computer selects rock, paper or scissors at r
 }
 
 
-function getGame() {  // main game function plays 5 rounds and returns winner 
-   for(let i = 1; i <= 5; i++) {
-       console.log("Round #" + i)
-       const playerSelection = "Rock"
-       const computerSelection = getComputerChoice();
-       getRound(playerSelection, computerSelection);
-   }
+function getGame() {  
+
+    const btnr= document.querySelector('.btnr')
+    btnr.addEventListener('click', getRound); {
+        console.log(playerSelection)
+    };
+    
+    const btnp= documenet.querySelector('.btnp')
+    btnp.addEventListener('click', getRound); { 
+        console.log(playerSelection) 
+    };
+    
+    const btns= documenet.querySelector('.btns')
+    btns.addEventListener('click', getRound); { 
+          console.log(playerSelection); 
+    };
+
    console.log("Game over")
    if(playerScore > computerScore) {
        console.log("Player Wins")
@@ -86,4 +94,3 @@ function getGame() {  // main game function plays 5 rounds and returns winner
    }
 }
     
-
